@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Salon Information</title>
+	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="salonlocator.js"></script>
+</head>
+<body>
+	<br><br><br>
+	<nav class="topnav" id="myTopnav">
+		
+		<ul>
+			<a href="index.html"><li>Home</li></a>
+			<a href="hairsalons.html"><li>Hair Salons</li></a>
+			<a href="nailsalons.html"><li>Nail Salons</li></a>
+			<a href="spas.html"><li>Spas</li></a>
+			<a href="favorites.html"><li>Favorites</li></a>
+			<a href="update.html"><li>Update Account</li></a>
+			<a href="language.html"><li>Language Settings</li></a>
+			<a href="help.html"><li>Help</li></a>
+			<a href="out.html"><li>Log Out</li></a>
+		</ul>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i></a>
+	</nav>
+
+
+	<div class="title"><h1>Salon Information</h1></div>
+	<div id="zip">
+		<label for="zipcode">Zip Code</label><br>
+		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required="">
+		<a href=""><button type="button"><img src="pics/starsearch.png"></button></a>
+		<br>
+	</div>
+
+	<br><br><br>
+
+	<div class="list">
+		<br>
+			<div id="full_info">
+				<img src="upload_logo" alt="salon name" id="large_logo">
+				<div id="full_description">
+					<h4><!--Salon Name--></h4>
+					<p><!--Type of Salon--></p>
+					<p><!--Location of Salon--></p>
+					<p><!--Phone Number--></p>
+					<p><!--Websites--></p>
+					<p><!--Number of 'Hearts' a Salon Has--></p>
+				</div>
+			</div>
+			<br>
+			<div id="time_services">
+				<div id="salon_times">
+					<h4>Hours of Operations</h4>
+					<h5><!--Hours of Operation--></h5>
+				</div><br>
+				<div id="salon_services">
+					<h4>Services Provided</h4>
+					<h5><!--Services Provided--></h5>
+				</div>
+			</div>
+
+				<br><br><br>
+			<div id="buttons">
+
+				<a href="salons.html"><button class="button" type="button">Back</button></a>
+
+				<a href="salonbooking.html"><button class="button" type="button">Book Appointment</button></a>
+
+				<button class="button" type="button"><img src="pics/favoritesicon.png"></button>
+
+			</div>
+
+			<br>
+	</div>
+	<footer>
+		<a href="index.html"><img src="pics/logo.png" alt="logo" class="logo"></a>
+	</footer>
+</body>
+</html>

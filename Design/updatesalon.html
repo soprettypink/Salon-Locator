@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Salon</title>
+	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="salonlocator.js"></script>
+</head>
+<body>
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<nav>
+		<!--
+		<ul>
+			<a href="index.html"><li>Home</li></a>
+			<a href="hairsalons.html"><li>Hair Salons</li></a>
+			<a href="nailsalons.html"><li>Nail Salons</li></a>
+			<a href="spas.html"><li>Spas</li></a>
+			<a href="favorites.html"><li>Favorites</li></a>
+			<a href="updateaccount.html"><li>Update Account</li></a>
+			<a href="language.html"><li>Language Settings</li></a>
+			<a href="help.html"><li>Help</li></a>
+			<a href="out.html"><li>Log Out</li></a>
+		</ul>
+		-->
+	</nav>
+	<img src="pics/logo.png" alt="logo" class="logo">
+	<br>
+	<div class="register">
+	<div id="survey">
+
+	<h1>Update or Delete a Salon or Spa: </h1>
+
+	<form>
+	<div>
+		<div class="doc">
+			<h2>Enter the Salon Information</h2>
+			<p>Upload Your Salon Logo</p>
+			<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+			<input type="file" accept="image/*" name="image" id="file" style="display: none;">
+			<p><img id="output" width="200" /></p>
+		</div>
+		<script>
+			var loadFile = function(event) {
+				var image = document.getElementById('output');
+				image.src = URL.createObjectURL(event.target.files[0]);
+			};
+		</script>
+
+		<label for="sname">Salon Name: </label><br>
+		<input type="text" id="sname" name="sname" required=""><br>
+
+		<label for="address">Address: </label><br>
+		<input type="text" id="address" name="address" required=""><br>
+
+		<label for="city">City: </label><br>
+		<input type="city" id="city" name="city" required=""><br>
+
+
+		<label for="state">State: </label>
+		<select name="state" id="state">
+			<option value="Alabama">AL</option>
+			<option value="Alaska">AK</option>
+			<option value="America Samoa">AS</option>
+			<option value="Arizona">AZ</option>
+			<option value="Arkansas">AR</option>
+			<option value="California">CA</option>
+			<option value="Colorado">CO</option>
+			<option value="Connecticut">CT</option>
+			<option value="Delaware">DE</option>
+			<option value="DistrictofColumbia">DC</option>
+			<option value="Florida">FL</option>
+			<option value="Georgia">GA</option>
+			<option value="Guam">GU</option>
+			<option value="Hawaii">HI</option>
+			<option value="Idaho">ID</option>
+			<option value="Ilinois">IL</option>
+			<option value="Indiana">IN</option>
+			<option value="Iowa">IA</option>
+			<option value="Kansas">KS</option>
+			<option value="Kentucky">KY</option>
+			<option value="Louisiana">LA</option>
+			<option value="Maine">ME</option>
+			<option value="Maryland">MD</option>
+			<option value="Massachsetts">MA</option>
+			<option value="Michigan">MI</option>
+			<option value="Minnesota">MN</option>
+			<option value="Missouri">MO</option>
+			<option value="Montana">MT</option>
+			<option value="Nebraska">NE</option>
+			<option value="Nevada">NV</option>
+			<option value="NewHampshire">NH</option>
+			<option value="NewJersey">NJ</option>
+			<option value="NewMexico">NM</option>
+			<option value="NewYork">NY</option>
+			<option value="NorthCarolina">NC</option>
+			<option value="NorthDakota">ND</option>
+			<option value="NorthernMarianaIS">MP</option>
+			<option value="Ohio">OH</option>
+			<option value="Oklahoma">OK</option>
+			<option value="Oregon">OR</option>
+			<option value="Pennsylvania">PA</option>
+			<option value="RuertoRico">PR</option>
+			<option value="RhodeIsland">RI</option>
+			<option value="SouthCarolina">SC</option>
+			<option value="SouthDakota">SD</option>
+			<option value="Tennessee">TN</option>
+			<option value="Texas">TX</option>
+			<option value="Utah">UT</option>
+			<option value="Vermont">VT</option>
+			<option value="Virginia">VA</option>
+			<option value="Virgin Islands">VI</option>
+			<option value="Washington">WA</option>
+			<option value="WestVirginia">WV</option>
+			<option value="Wisconsin">WI</option>
+			<option value="Wyoming">WY</option>
+		</select>
+
+		<br>
+		<label for="zipcode">Zip Code: </label><br>
+		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required=""><br>
+
+		<label for="phone">Phone Number: </label><br>
+		<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required=""><br>
+
+		<label for="email">Salon Email: </label><br>
+		<input type="email" id="email" name="email" required=""><br>
+
+		<label for="url">Enter in the Website: </label><br>
+		<input type="url" id="url" name="url" pattern="https://.*" size="30" required=""><br>
+
+		<div class="doc">
+		<p>Please choose what type of salon you would like to enroll:</p>
+		</div>
+			<input type="radio" id="hair" name="hair" value="hair" required="">
+			<label for="hairsalon">Hair Salon</label><br>
+
+			<input type="radio" id="nails" name="nails" value="nails" required="">
+			<label for="nailsalon">Nail Salon</label><br>
+
+			<input type="radio" id="spa" name="spa" value="spa" required="">
+			<label for="spa">Spa</label><br>
+
+		<br>
+
+		
+	</div>
+<br>
+		<div>
+
+		<div class="hours">
+			<h2>Enter the Hours of Operation</h2>
+			<div>
+				<input type="checkbox" id="sunday" name="sunday" value="sunday">
+				<label for="sunday">Sunday</label>
+				<label for="time"></label>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<br>
+				<input type="checkbox" id="monday" name="monday" value="monday">
+				<label for="monday">Monday</label>
+				<label for="time"></label>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<br>
+				<input type="checkbox" id="tuesday" name="tuesday" value="tuesday">
+				<label for="tuesday">Tuesday</label>
+				<label for="time"></label>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<br>
+				<input type="checkbox" id="wednesday" name="wednesday" value="wednesday">
+				<label for="wednesday">Wednesday</label>
+				<label for="time"></label>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<br>
+				<input type="checkbox" id="thursday" name="thursday" value="thursday">
+				<label for="thursday">Thursday</label>
+				<label for="time"></label>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<br>
+				<input type="checkbox" id="friday" name="friday" value="friday">
+				<label for="friday">Friday</label>
+				<label for="time"></label>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<br>
+				<input type="checkbox" id="saturday" name="saturday" value="saturday">
+				<label for="saturday">Saturday</label>
+				<label for="time"></label>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<br>
+			</div>
+		</div>
+		</div>
+<br><br>
+		<div>
+		<div class="services">
+			<h2>Enter the Services</h2>
+			<div>
+				<h4>Hair Services</h4>
+				<input type="checkbox" id=dry name="dry" value="dry">
+				<label for="dry">Blow Dry</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="cut" name="cut" value="cut">
+				<label for="cut">Hair Cut with Blow Dry</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="curl" name="curl" value="curl">
+				<label for="curl">Blow Dry with curling or flat iron</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="part" name="part" value="part">
+				<label for="part">Partial Highlights</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="full" name="full" value="full">
+				<label for="full">Full Highlights</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="conditioning" name="conditioning" value="conditioning">
+				<label for="conditioning">Conditioning Treatment</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="perm" name="perm" value="perm">
+				<label for="perm">Perms</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="relaxer" name="relaxer" value="relaxer">
+				<label for="relaxer">Relaxers</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="tint" name="tint" value="tint">
+				<label for="tint">Basic Tint</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="straight" name="straight" value="straight">
+				<label for="straight">Japanese Hair Straightening</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+			</div>
+
+			<div>
+				<h4>Nail Services</h4>
+				<input type="checkbox" id=mani name="mani" value="mani">
+				<label for="mani">Manicure</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="pedi" name="pedi" value="pedi">
+				<label for="pedi">Pedicure</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="gelm" name="gelm" value="gelm">
+				<label for="gelm">Gel Manicure</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="gelp" name="gelp" value="gelp">
+				<label for="gelp">Gel Pedicure</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="gel" name="gel" value="gel">
+				<label for="gel">Gel Full Set</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="gelfill" name="gelfill" value="gelfill">
+				<label for="gelfill">Gel Fill</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="soak" name="soak" value="soak">
+				<label for="soak">Soak-off Removal</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="arc" name="arc" value="arc">
+				<label for="arc">Acrylic Full Set</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="arcfill" name="arcfill" value="arcfill">
+				<label for="arcfill">Arcylic Fill</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="arcremove" name="arcremove" value="arcremove">
+				<label for="arcremove">Arcylic Removal</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="polish" name="polish" value="polish">
+				<label for="polish">Polish Change</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="design" name="design" value="design">
+				<label for="design">Nail Design/Nail Art</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="pinkwhite" name="pinkwhite" value="pinkwhite">
+				<label for="pinkwhite">Pink and White</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="dip" name="dip" value="dip">
+				<label for="dip">Dip Powder</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="polish" name="polish" value="polish">
+				<label for="polish">Polish Change</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="paraffin" name="paraffin" value="paraffin">
+				<label for="paraffin">Paraffin Wax Treatment</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+			</div>
+
+			<div>
+				<h4>Spa Services</h4>
+				<input type="checkbox" id=eye name="eye" value="eye">
+				<label for="eye">Eyebrow Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="lip" name="lip" value="lip">
+				<label for="lip">Lip Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="chin" name="chin" value="chin">
+				<label for="chin">Chin Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="face" name="face" value="face">
+				<label for="face">Facial Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="farm" name="farm" value="farm">
+				<label for="farm">Full Arm Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="fleg" name="fleg" value="fleg">
+				<label for="fleg">Full Leg Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="harm" name="harm" value="harm">
+				<label for="harm">Half Arm Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="hleg" name="hleg" value="hleg">
+				<label for="hleg">Half Leg Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="uarm" name="uarm" value="uarm">
+				<label for="uarm">Under Arm Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="back" name="back" value="back">
+				<label for="back">Back Waxing</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="brazilian" name="brazilian" value="brazilian">
+				<label for="brazilian">Brazilian</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="bikini" name="bikini" value="bikini">
+				<label for="bikini">Bikini</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="facial" name="facial" value="facial">
+				<label for="facial">Facial</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="lash" name="lash" value="lash">
+				<label for="lash">Lash Extention</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+				<input type="checkbox" id="massage" name="massage" value="massage">
+				<label for="massage">Full Body Massage</label>
+				<label for="price"></label>
+				<input type="price" id="price" name="price" minlength="8" placeholder="Enter price" required=""><br>
+				<br>
+			</div>
+		</div>
+		</div>
+
+		</div>
+	<div id="buttons">
+		<br>
+		<a href="out.html"><button class="button" type="button">Cancel</button></a>
+		<a href=""><button class="button" type="button">Delete Salon</button></a>
+		<a href="index.html"><button class="button" type="button">Update Salon</button></a>
+	</div>
+	</form>
+
+</body>
+</html>
