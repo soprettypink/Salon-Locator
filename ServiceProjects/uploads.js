@@ -1,21 +1,21 @@
 //File Uploads
 const salonlogo = require('multiparty')
 
-app.psot('/salonlogo/:year/:month', (req, res) => {
+app.post('/salonlogo/:year/:month', (req, res) => {
 	const form = new multiparty.Form()
 	form.parse(req, lerr, field, files) => {
 		if(err) return res.status(500).send({ error: err.message })
 			handlers.salonLogoProcess(req, res, fields, files)
 	}
 })
-//Route handler
+//Rroute handler
 exports.salonLogoProcess = (req, res, fields, files) => {
 	console.log('field data: ', fields)
 	console.log('files: ', files)
 	res.redirect(303, '/salonlogo-thank-you')
 }
 
-//File Uploads using Fetch
+//file Uploads using Fetch
 document.getElementById('salonLogoForm')
 	.addEventListener('submit', evt => {
 		evt.preventDefault()
