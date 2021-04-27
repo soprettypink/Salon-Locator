@@ -156,7 +156,7 @@ nav li {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 35px;
+  font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
   font-family: cursive;
@@ -164,9 +164,17 @@ nav li {
 }
 
 #buttons {
-  max-width: 64em;
+  max-width: 54em;
   margin: auto;
   text-align: center;
+}
+
+#index {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .doc p {
@@ -240,6 +248,13 @@ div.hours, div.services {
 }
 
 .indexphoto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.photos {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -339,12 +354,12 @@ div.hours, div.services {
   border-radius: 50%;
 }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a pink background color */
 .langset:hover input ~ .checkmark {
   background-color: #eccfe9;
 }
 
-/* When the radio button is checked, add a blue background */
+/* When the radio button is checked, add a pink background */
 .langset input:checked ~ .checkmark {
   background-color: #e2aadd;
 }
@@ -370,6 +385,68 @@ div.hours, div.services {
   border-radius: 50%;
   background: #2daf21;
 }
+
+/* The checkboxes used for booking the salonn will be customized to match the app's theme
+.contained {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.contained input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+}
+
+.contained:hover input ~ .check {
+  background-color: #eccfe9;
+}
+
+.contained input:checked ~ .check {
+  background-color: #2daf21;
+}
+
+.check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.contained input:checked ~ .check:after {
+  display: block;
+}
+
+.contained .check:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid pink;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  
+}
+*/
 
 #myBtn {
   display: none;
@@ -445,6 +522,9 @@ div.hours, div.services {
 #help {
   background-color: #eccfe9;
   color: #2daf21;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #help.placeholder {
@@ -469,8 +549,6 @@ div.hours, div.services {
   color: #f382e8;
 }
 
-
-
 #full_info {
   background-color: white;
   padding: 2px 2px 2px 2px;
@@ -484,4 +562,30 @@ div.hours, div.services {
   text-align: center;
   color: white;
   scroll-behavior: auto;
+}
+
+/* For width smaller than 400px: */
+.slider img {
+  width: 100px;
+  height: 300px; 
+}
+
+/* For width 400px and larger: */
+@media only screen and (min-width: 400px) {
+  .slider img { 
+     width: 400px; 
+     height: 500px
+  }
+}
+
+.slide img {
+  width: 100px;
+  height: 300px;
+}
+
+@media only screen and (min-width: 400px) {
+  .slide img {
+    width: 500px;
+    height: 400px;
+  }
 }
