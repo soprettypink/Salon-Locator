@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register an Account</title>
+	<title>Register</title>
 	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="salonlocator.js"></script>
+	<script src="script.js"></script>
+	<script src="app.js"></script>
 </head>
 <body>
 	<nav>
@@ -18,9 +21,8 @@
 			<a href="spas.html"><li>Spas</li></a>
 			<a href="favorites.html"><li>Favorites</li></a>
 			<a href="updateaccount.html"><li>Update Account</li></a>
-			<a href="language.html"><li>Language Settings</li></a>
 			<a href="help.html"><li>Help</li></a>
-			<a href="out.html"><li>Log Out</li></a>
+			<a href="logout.html"><li>Log Out</li></a>
 		</ul>
 		-->
 	</nav>
@@ -31,21 +33,18 @@
 
 	<h1>Fill out the form to create an account: </h1>
 	<br><br>
-	<form>
-		<label for="fname">First Name: </label><br>
-		<input type="text" id="fname" name="fname" required=""><br>
-
-		<label for="lname">Last Name: </label><br>
-		<input type="text" id="lname" name="lname" required=""><br>
+	<form name="accountForm" action="/post-feedback" onsubmit="return validate()" method="post">
+		<label for="fullname">Full Name: </label><br>
+		<input type="text" id="fullname" name="fullname" required><br>
 
 		<label for="uname">Username: </label><br>
-		<input type="text" id="uname" name="uname" required=""><br>
+		<input type="text" id="uname" name="uname" required><br>
 
 		<label for="address">Address: </label><br>
-		<input type="text" id="address" name="address" required=""><br>
+		<input type="text" id="address" name="address" required><br>
 
 		<label for="city">City: </label><br>
-		<input type="city" id="city" name="city" required=""><br>
+		<input type="city" id="city" name="city" required><br>
 
 
 		<label for="state">State: </label>
@@ -107,35 +106,43 @@
 			<option value="Wyoming">WY</option>
 		</select>
 
-
+		<br>
+	
 		<label for="zipcode">Zip Code: </label><br>
-		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required=""><br>
+		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required><br>
 
-		<label for="phone">Phone Number: </label><br>
-		<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required=""><br>
 
 		<label for="email">Email: </label><br>
-		<input type="email" id="email" name="email" required=""><br>
+		<input type="email" id="email" name="email" required><br>
 
 		<label for="pass">Password: </label><br>
-		<input type="password" id="pass" name="password" minlength="5" placeholder="5 characters minimum" required=""><br>
+		<input type="password" id="pass" name="password" minlength="5" placeholder="5 characters minimum" required minlength="5"><br>
 
 		<label for="pass">Retype Password: </label><br>
-		<input type="password" id="pass" name="password" placeholder="Retype password" required=""><br><br>
+		<input type="password" id="pass" name="password" placeholder="Retype password" required minlength="5"><br><br>
 
-
+	
 		<p class="account">Please choose what type of account you would like:</p>
-		<input type="radio" id="customer" name="customer" value="customer" required="">
-		<label for="customer">Customer</label><br>
+	<div id="langset">
+		<div class="form-check">
+            <input class="form-check-input" type="radio" name="radiobutton" id="customer" value="customer" checked={true}>
+            <label class="form-check-label" for="exampleRadios2">Customer</label><br>
+        </div>
 
-		<input type="radio" id="salonowner" name="salonowner" value="salonowner" required="">
-		<label for="salonowner">Salon Owner</label><br>
-		</div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radiobutton" id="owner" value="owner">
+             <label class="form-check-label" for="exampleRadios2">Salon Owner</label><br>
+        </div>
+    </div>
+
+
 		<br>
 		<div id="buttons">
-		<a href="out.html"><button class="button" type="button">Cancel</button></a>
-		<a href="enrollsalon.html"><button class="button" type="button">Enroll Salon</button></a>
-		<a href="index.html"><button class="button" type="button">Register</button></a>
+		<a href="logout.html"><button class="button" type="button">Cancel</button></a>
+	
+		<a href="enrollsalon.html"><input class="button" type="submit" name="enrollsalon" value="Enroll Salon"></a>
+
+		<a href="index.html"><input class="button" type="submit" name="register" value="Register"></a>
 		</div><br>
 	</form>
 </div>
