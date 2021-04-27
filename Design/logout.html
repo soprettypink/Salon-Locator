@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Salon Locator</title>
+	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="logo">
+	<nav>
+		<img src="pics/logo.png" alt="logo" class="logo">
+		<!--
+		<ul>
+			<a href="index.html"><li>Home</li></a>
+			<a href="hairsalons.html"><li>Hair Salons</li></a>
+			<a href="nailsalons.html"><li>Nail Salons</li></a>
+			<a href="spas.html"><li>Spas</li></a>
+			<a href="favorites.html"><li>Favorites</li></a>
+			<a href="updateaccount.html"><li>Update Account</li></a>
+			<a href="help.html"><li>Help</li></a>
+			<a href="logout.html"><li>Log Out</li></a>
+		</ul>
+		-->
+	</nav>
+</div>
+<br>
+<br><div class="slider">
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+				<img src="pics/naildesign.jpg" alt="naildesign" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/nailart.jpg" alt="pinknails" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/hairdesign.jpg" alt="straighthair" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/lipstick.png" alt="pinknails" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/curls.jpg" alt="curlyhair" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/pinknails.jpg" alt="pinknails" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/pinkmakeup.jpg" alt="pinknails" class="indexphoto">
+			</div>
+			
+			<br>
+  			<div style="text-align:center"> 
+  			<span class="dot" onclick="currentSlide(1)"></span> 
+  			<span class="dot" onclick="currentSlide(2)"></span> 
+  			<span class="dot" onclick="currentSlide(3)"></span>
+  			<span class="dot" onclick="currentSlide(4)"></span>
+  			<span class="dot" onclick="currentSlide(5)"></span>
+  			<span class="dot" onclick="currentSlide(6)"></span>
+  			<span class="dot" onclick="currentSlide(7)"></span>
+  			
+		</div>
+	</div>
+	<br>
+
+	<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+</script>
+
+<br>
+	<div class="enter">
+		<a href="register.html"><button class="button" type="button" value="Input">Register</button></a>
+		<a href="login.html"><button class="button" type="button" value="Input">Login</button></a>
+	</div>
+
+</body>
+</html>
