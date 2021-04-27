@@ -6,10 +6,20 @@
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="salon_locator.js"></script>
+	<script src="salonlocator.js"></script>
 </head>
 <body>
 	<br><br><br>
+	<script>
+		function myFunction() {
+  		var x = document.getElementById("myTopnav2");
+  			if (x.className === "topnav2") {
+    			x.className += " responsive";
+  			} else {
+    			x.className = "topnav2";
+  			}
+		}
+	</script>
 	<nav class="topnav2" id="myTopnav2">
 		
 		<ul>
@@ -18,10 +28,10 @@
 			<a href="nailsalons.html"><li>Nail Salons</li></a>
 			<a href="spas.html"><li>Spas</li></a>
 			<a href="favorites.html"><li>Favorites</li></a>
+			<a href="saloninfo.html"><li>Salon Information</li></a>
 			<a href="update.html"><li>Update Account</li></a>
-			<a href="language.html"><li>Language Settings</li></a>
 			<a href="help.html"><li>Help</li></a>
-			<a href="out.html"><li>Log Out</li></a>
+			<a href="logout.html"><li>Log Out</li></a>
 		</ul>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i></a>
