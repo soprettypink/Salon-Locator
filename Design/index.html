@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="salonlocator.js"></script>
+	<script src="salonlocator.js"></script>
 </head>
 <body>
 	<img src="pics/logo.png" alt="logo" class="logo">
@@ -19,10 +19,10 @@
 			<a href="nailsalons.html"><li>Nail Salons</li></a>
 			<a href="spas.html"><li>Spas</li></a>
 			<a href="favorites.html"><li>Favorites</li></a>
+			<a href="saloninfo.html"><li>Salon Information</li></a>
 			<a href="update.html"><li>Update Account</li></a>
-			<a href="language.html"><li>Language Settings</li></a>
 			<a href="help.html"><li>Help</li></a>
-			<a href="out.html"><li>Log Out</li></a>
+			<a href="logout.html"><li>Log Out</li></a>
 		</ul>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i></a>
@@ -30,17 +30,92 @@
 
 
 	<br><br><br>
-	<div>
-		<img src="pics/heels_makeup.jpg" alt="cosmetics" class="indexphoto">
+	<div class="slide">
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+				<img src="pics/heels_makeup.jpg" alt="cosmetics" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/longhair.jpg" alt="longhair" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/beauty.jpg" alt="pinkmakeup" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/roseypink.jpg" alt="pinkroses" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/nail-art1.jpg" alt="pinkroses" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/style.jpg" alt="hairstyle" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/pink-cosmetics1.jpg" alt="makeup" class="indexphoto">
+			</div>
+			<div class="mySlides fade">
+				<img src="pics/pink-cosmetics2.jpg" alt="pinkcosmetics" class="indexphoto">
+			</div>
+			<br>
+  			<div style="text-align:center"> 
+  			<span class="dot" onclick="currentSlide(1)"></span> 
+  			<span class="dot" onclick="currentSlide(2)"></span> 
+  			<span class="dot" onclick="currentSlide(3)"></span>
+  			<span class="dot" onclick="currentSlide(4)"></span>
+  			<span class="dot" onclick="currentSlide(5)"></span>
+  			<span class="dot" onclick="currentSlide(6)"></span>
+  			<span class="dot" onclick="currentSlide(7)"></span>
+  			<span class="dot" onclick="currentSlide(8)"></span>
+		</div>
 	</div>
 	<br>
-	<div class="zip">
-		<h3><label for="zip">Please enter a zip code</label></h3><br>
-		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required=""><br>
-	</div>
+
+	<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+	<br>
+	<form name="accountForm" action="/action_page.php" onsubmit="return validate()" method="post" class="zip" method="get">
+
+		<h3><label for="zip">Please enter a zip code: </label></h3><br>
+
+		<label for="zipcode">Zip Code: </label><br>
+		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required><br>
+
+		<br>
+	</form>
 	<br>
 	<div id="buttons">
-		<a href="salons.html"><button class="button" type="button">Submit</button></a>
+	<a href="hairsalons.html"><input class="button" type="submit" name="submit" value="Submit"></a>
 	</div>
+	<br><br>
+
 </body>
 </html>
