@@ -18,10 +18,10 @@
 			<a href="nailsalons.html"><li>Nail Salons</li></a>
 			<a href="spas.html"><li>Spas</li></a>
 			<a href="favorites.html"><li>Favorites</li></a>
+			<a href="saloninfo.html"><li>Salon Information</li></a>
 			<a href="update.html"><li>Update Account</li></a>
-			<a href="language.html"><li>Language Settings</li></a>
 			<a href="help.html"><li>Help</li></a>
-			<a href="out.html"><li>Log Out</li></a>
+			<a href="logout.html"><li>Log Out</li></a>
 		</ul>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i></a>
@@ -37,6 +37,17 @@
 	</div>
 
 	<br><br><br>
+
+	<script type="text/javascript">
+		function myFunction() {
+  		var x = document.getElementById("myTopnav");
+  			if (x.className === "topnav") {
+    			x.className += " responsive";
+  			} else {
+    			x.className = "topnav";
+  			}
+		}
+	</script>
 
 	<div class="list">
 		<br>
@@ -66,11 +77,11 @@
 				<br><br><br>
 			<div id="buttons">
 
-				<a href="salons.html"><button class="button" type="button">Back</button></a>
+				<a href="index.html"><button class="button" type="button">Back</button></a>
 
 				<a href="salonbooking.html"><button class="button" type="button">Book Appointment</button></a>
 
-				<button class="button" type="button"><img src="pics/favoritesicon.png"></button>
+				<a href="favorites.html"><button class="button" type="button"><img src="pics/favoritesicon.png"></button></a>
 
 			</div>
 
