@@ -8,10 +8,10 @@ const API_PORT = 3001;
 const app = express();
 const router = express.Router();
 
-// this is our MongoDB database
-const dbRoute = "mongodb+srv://SoPrettyPink:*****@sobicluster.thoc8.mongodb.net/myFirstDatabase?authSource=admin&replicaSet=atlas-wtnsaw-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true";
+//this is the MongoDB database
+const dbRoute = 'mongodb+srv://SoPrettyPink:pINKY@sobicluster.thoc8.mongodb.net/salon-locator?retryWrites=true&w=majority';
 
-// connects our back end code with the database
+//connects the back end code with the database
 mongoose.connect(
   dbRoute,
   { useNewUrlParser: true }
@@ -21,17 +21,15 @@ let db = mongoose.connection;
 
 db.once("open", () => console.log("connected to the database"));
 
-// checks if connection with the database is successful
+//checks if connection with the database is successful
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-// (optional) only made for logging and
-// bodyParser, parses the request body to be a readable json format
+//only made for logging and bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
 
-// this is our get method
-// this method fetches all available data in our database
+// this is the get method and it fetches all available data in the database
 router.get("/getData", (req, res) => {
   Data.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -39,8 +37,7 @@ router.get("/getData", (req, res) => {
   });
 });
 
-// this is our update method
-// this method overwrites existing data in our database
+//this is the update method and it overwrites existing data in the database
 router.post("/updateData", (req, res) => {
   const { id, update } = req.body;
   Data.findOneAndUpdate(id, update, err => {
@@ -49,8 +46,7 @@ router.post("/updateData", (req, res) => {
   });
 });
 
-// this is our delete method
-// this method removes existing data in our database
+//this is a delete method and it removes existing data in the database
 router.delete("/deleteData", (req, res) => {
   const { id } = req.body;
   Data.findOneAndDelete(id, err => {
@@ -59,8 +55,7 @@ router.delete("/deleteData", (req, res) => {
   });
 });
 
-// this is our create methid
-// this method adds new data in our database
+//this is a create methid and it adds new data in it database
 router.post("/putData", (req, res) => {
   let data = new Data();
 
@@ -80,8 +75,9 @@ router.post("/putData", (req, res) => {
   });
 });
 
-// append /api for our http requests
+//append /api for the http requests
 app.use("/api", router);
 
-// launch our backend into a port
+//launch the \ backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+
