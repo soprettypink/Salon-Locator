@@ -7,7 +7,7 @@ const result = await mailTransport.sendMail({
 		'salon appointment using Salon Locator!</p>'
 })
 
-//Encapsulating email functionality
+//encapsulating email functionality
 const nodemailer = require('nodemailer')
 const htmlToFormattedText = require('html-to-formatted-text')
 
