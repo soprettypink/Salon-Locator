@@ -6,12 +6,12 @@
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="salonlocator.js"></script>
+	<script src="salonlocator.js"></script>
 </head>
 <body>
 	<br><br><br>
+
 	<nav class="topnav" id="myTopnav">
-		
 		<ul>
 			<a href="index.html"><li>Home</li></a>
 			<a href="hairsalons.html"><li>Hair Salons</li></a>
@@ -19,14 +19,26 @@
 			<a href="spas.html"><li>Spas</li></a>
 			<a href="favorites.html"><li>Favorites</li></a>
 			<a href="update.html"><li>Update Account</li></a>
-			<a href="language.html"><li>Language Settings</li></a>
 			<a href="help.html"><li>Help</li></a>
-			<a href="out.html"><li>Log Out</li></a>
+			<a href="logout.html"><li>Log Out</li></a>
 		</ul>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i></a>
 	</nav>
-
+	
+	<script>
+		function myFunction() {
+  		var x = document.getElementById("myTopnav");
+  			if (x.className === "topnav") {
+    			x.className += " responsive";
+  			} else {
+    			x.className = "topnav";
+  			}
+		}
+		function aFunction() {
+  			alert("Congratulations! You have successfully booked an appointment.");
+		}
+	</script>
 
 	<div class="title"><h1>Salon Booking</h1></div>
 	<div id="zip">
@@ -39,7 +51,7 @@
 
 	<br><br><br>
 
-	<div class="booking">
+	<form class="booking">
 		<div id="salon_booking">
 			<img src="upload_logo" alt="salon name" id="salon_logo2">
 			<div id="full_description">
@@ -54,16 +66,75 @@
 		<div id="daytime">
 			<h3>Choose a Date and Time</h3>
 			<div id="calendar">
-				<!--incorporate a calendar where users choose a date-->
-				<!--use JavaScript to build the calendar-->
+				<!--incorporate a calendar where users choose a date using React-->
+    			
+    			<script src="calendar.js">
+    				import React, { Component } from 'react';
+					import DatePicker from 'react-datepicker';
+ 
+					import "react-datepicker/dist/react-datepicker.css";
+					import 'bootstrap/dist/css/bootstrap.min.css';
+
+					class App extends Component {
+
+  						constructor (props) {
+    						super(props)
+    						this.state = {
+      							startDate: new Date()
+    						};
+    						this.handleChange = this.handleChange.bind(this);
+    						this.onFormSubmit = this.onFormSubmit.bind(this);
+  						}
+
+  					handleChange(date) {
+    					this.setState({
+      						startDate: date
+    					})
+  					}
+
+  					onFormSubmit(e) {
+    					e.preventDefault();
+    					console.log(this.state.startDate)
+  					}
+ 
+  					render() {
+    					return (
+      						<form onSubmit={ this.onFormSubmit }>
+        						<div className="form-group">
+          							<DatePicker
+              							selected={ this.state.startDate }
+              							onChange={ this.handleChange }
+              							name="startDate"
+              							dateFormat="MM/dd/yyyy"
+          							/>
+          							<button className="btn btn-primary">Show Date</button>
+        						</div>
+      						</form>
+    					);
+  					}
+  
+				}
+
+				export default App;
+    		</script>
 			</div>
 			<div id="time">
 				<!--incorporate radio buttons for users to choose a specific time-->	
+				<div class="form-check">
+            		<input class="form-check-input" type="radio" name="radiobutton" id="customer" value="customer">
+            		<label class="form-check-label" for="exampleRadios2"></label><br>
+        		</div>
 			</div>
 		</div>
 		<div><br>
 		<div>
+
 			<h3>Choose Up to Three Services</h3>
+				<label class="contained">
+  				<input type="checkbox" checked="checked">
+  				<span class="check"></span>
+				</label>
+
 		</div>
 			<div id="choose_service">
 				<!--incorporate checkboxes for specific services and prices will be displayed-->
@@ -72,7 +143,7 @@
 
 		</div>
 		<br>	
-	</div>
+	</form>
 
 		<br><br>	
 			<div id="buttons">
@@ -81,12 +152,12 @@
 
 				<button class="button" type="button">Clear</button>
 
-				<a href="congrats.html"><button class="button" type="button">Book Appointment</button></a>
+				<a href="index.html"><button class="button" type="button" onclick="aFunction()">Book Appointment</button></a>
 
 
 			</div>
 
-			<br>
+	<br>
 	<footer>
 		<a href="index.html"><img src="pics/logo.png" alt="logo" class="logo"></a>
 	</footer>
