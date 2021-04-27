@@ -1,29 +1,40 @@
-function myFunction() {
-  var x = document.getElementById("myTopnav2");
-  if (x.className === "topnav2") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav2";
-  }
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+
+'use strict'; 
+const e = React.createElement; 
+class myButton extends React.Component { 
+  constructor(props) { 
+    super(props); 
+    this.state = { isliked: false }; 
+  } 
+ 
+  render() { 
+    if (this.state.isliked) { 
+      return 'Yes I Really Like This.'; 
+    } 
+ 
+    return e( 
+      'button', 
+      { onClick: () => this.setState({ isliked: true }) }, 
+      'Like Button' 
+    ); 
+  } 
+} 
+const domContainer = document.querySelector('#some_random_id'); 
+ReactDOM.render(e(myButton), domContainer);
+
+function MyApp() {
+  const [value, onChange] = useState(new Date());
+
+  return (
+    <div>
+      <Calendar
+        onChange={onChange}
+        value={value}
+      />
+    </div>
+  );
 }
-
-//Get the button
-var mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
