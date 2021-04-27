@@ -18,10 +18,10 @@
 			<a href="nailsalons.html"><li>Nail Salons</li></a>
 			<a href="spas.html"><li>Spas</li></a>
 			<a href="favorites.html"><li>Favorites</li></a>
+			<a href="saloninfo.html"><li>Salon Information</li></a>
 			<a href="updateaccount.html"><li>Update Account</li></a>
-			<a href="language.html"><li>Language Settings</li></a>
 			<a href="help.html"><li>Help</li></a>
-			<a href="out.html"><li>Log Out</li></a>
+			<a href="logout.html"><li>Log Out</li></a>
 		</ul>
 		-->
 	</nav>
@@ -32,7 +32,7 @@
 
 	<h1>Update or Delete a Salon or Spa: </h1>
 
-	<form>
+	<form name="accountForm" action="/action_page.php" onsubmit="return validate()" method="post">
 	<div>
 		<div class="doc">
 			<h2>Enter the Salon Information</h2>
@@ -46,16 +46,20 @@
 				var image = document.getElementById('output');
 				image.src = URL.createObjectURL(event.target.files[0]);
 			};
+
+			function goBack() {
+  				window.history.back()
+			}
 		</script>
 
 		<label for="sname">Salon Name: </label><br>
-		<input type="text" id="sname" name="sname" required=""><br>
+		<input type="text" id="sname" name="sname" required><br>
 
 		<label for="address">Address: </label><br>
-		<input type="text" id="address" name="address" required=""><br>
+		<input type="text" id="address" name="address" required><br>
 
 		<label for="city">City: </label><br>
-		<input type="city" id="city" name="city" required=""><br>
+		<input type="city" id="city" name="city" required><br>
 
 
 		<label for="state">State: </label>
@@ -119,28 +123,35 @@
 
 		<br>
 		<label for="zipcode">Zip Code: </label><br>
-		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required=""><br>
+		<input type="number" id="zipcode" name="zipcode" pattern="[0-9]*" required><br>
 
 		<label for="phone">Phone Number: </label><br>
-		<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required=""><br>
+		<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
 
 		<label for="email">Salon Email: </label><br>
-		<input type="email" id="email" name="email" required=""><br>
+		<input type="email" id="email" name="email" required><br>
 
 		<label for="url">Enter in the Website: </label><br>
-		<input type="url" id="url" name="url" pattern="https://.*" size="30" required=""><br>
+		<input type="url" id="url" name="url" pattern="https://.*" size="30" required><br>
 
 		<div class="doc">
 		<p>Please choose what type of salon you would like to enroll:</p>
 		</div>
-			<input type="radio" id="hair" name="hair" value="hair" required="">
-			<label for="hairsalon">Hair Salon</label><br>
 
-			<input type="radio" id="nails" name="nails" value="nails" required="">
-			<label for="nailsalon">Nail Salon</label><br>
+			<div class="form-check">
+                 <input class="form-check-input" type="radio" name="radiobutton" id="hair" value="hair">
+                 <label class="form-check-label" for="exampleRadios2">Hair Salon</label><br>
+            </div>
 
-			<input type="radio" id="spa" name="spa" value="spa" required="">
-			<label for="spa">Spa</label><br>
+            <div class="form-check">
+            	<input class="form-check-input" type="radio" name="radiobutton" id="nails" value="nails">
+                <label class="form-check-label" for="exampleRadios2">Nail Salon</label><br>
+            </div>
+
+            <div class="form-check">
+            	<input class="form-check-input" type="radio" name="radiobutton" id="spa" value="spa">
+                <label class="form-check-label" for="exampleRadios2">Spa</label><br>
+            </div>
 
 		<br>
 
@@ -155,37 +166,37 @@
 				<input type="checkbox" id="sunday" name="sunday" value="sunday">
 				<label for="sunday">Sunday</label>
 				<label for="time"></label>
-				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required><br>
 				<br>
 				<input type="checkbox" id="monday" name="monday" value="monday">
 				<label for="monday">Monday</label>
 				<label for="time"></label>
-				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required><br>
 				<br>
 				<input type="checkbox" id="tuesday" name="tuesday" value="tuesday">
 				<label for="tuesday">Tuesday</label>
 				<label for="time"></label>
-				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required><br>
 				<br>
 				<input type="checkbox" id="wednesday" name="wednesday" value="wednesday">
 				<label for="wednesday">Wednesday</label>
 				<label for="time"></label>
-				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required><br>
 				<br>
 				<input type="checkbox" id="thursday" name="thursday" value="thursday">
 				<label for="thursday">Thursday</label>
 				<label for="time"></label>
-				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required><br>
 				<br>
 				<input type="checkbox" id="friday" name="friday" value="friday">
 				<label for="friday">Friday</label>
 				<label for="time"></label>
-				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required><br>
 				<br>
 				<input type="checkbox" id="saturday" name="saturday" value="saturday">
 				<label for="saturday">Saturday</label>
 				<label for="time"></label>
-				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required=""><br>
+				<input type="time" id="time" name="time" minlength="8" placeholder="8 am to 5 pm" required><br>
 				<br>
 			</div>
 		</div>
@@ -416,9 +427,9 @@
 		</div>
 	<div id="buttons">
 		<br>
-		<a href="out.html"><button class="button" type="button">Cancel</button></a>
+		<button class="button" type="button" onclick="goBack()">Cancel</button>
 		<a href=""><button class="button" type="button">Delete Salon</button></a>
-		<a href="index.html"><button class="button" type="button">Update Salon</button></a>
+		<a href="enrollsalon.html"><input class="button" type="submit" name="enrollsalon" value="Update Salon"></a>
 	</div>
 	</form>
 
